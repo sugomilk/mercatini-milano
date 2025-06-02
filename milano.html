@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mercatini di Milano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([45.4642, 9.19], 12); // Milano centro
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  const mercatini = [
+    {
+      nome: "Fiera di Sinigallia",
+      indirizzo: "Ripa di Porta Ticinese",
+      orari: "Ogni sabato, 8:00–18:00",
+      lat: 45.4517, lng: 9.1743
+    },
+    {
+      nome: "Mercatone sul Naviglio Grande",
+      indirizzo: "Alzaia Naviglio Grande",
+      orari: "Ultima domenica del mese, 8:30–18:30",
+      lat: 45.4500, lng: 9.1675
+    },
+    {
+      nome: "Negri Molino Dorino",
+      indirizzo: "Molino Dorino",
+      orari: "Dalle 4 in poi penso tutti i giorni",
+      lat: 45.5054832, lng: 9.0934850
+    },
+    {
+      nome: "East Market",
+      indirizzo: "Via Mecenate, 88/A",
+      orari: "Terza domenica del mese, 10:00–21:00",
+      lat: 45.4504, lng: 9.2568
+    },
+    {
+      nome: "Mercatino Milano Centrale",
+      indirizzo: "Via Zuretti, 60",
+      orari: "Lun–Ven 9:30–13 / 15–19; Sab–Dom 10–19",
+      lat: 45.4892, lng: 9.2055
+    },
+    {
+      nome: "Mercatino Ripamonti",
+      indirizzo: "Via Monti Sabini, 9",
+      orari: "Mar–Dom 9:30–12:30 / 15–19",
+      lat: 45.4265, lng: 9.1991
+    },
+    {
+      nome: "Mercatino della Bovisa",
+      indirizzo: "Piazza Emilio Alfieri",
+      orari: "Ogni domenica, 9:00–13:00",
+      lat: 45.5060, lng: 9.1620
+    },
+    {
+      nome: "Mostra Mercato Piazza Diaz",
+      indirizzo: "Piazza Diaz",
+      orari: "1°, 2°, 3° giovedì del mese",
+      lat: 45.4615, lng: 9.1876
+    },
+    {
+      nome: "Mercato Quarto Oggiaro",
+      indirizzo: "Via Traversi",
+      orari: "Ogni sabato mattina",
+      lat: 45.5140, lng: 9.1278
+    },
+    {
+      nome: "Mercatino viale Papiniano",
+      indirizzo: "Viale Papiniano",
+      orari: "Martedi: 7:30 - 14:00, Sabato: 7:30 - 18:00",
+      lat: 45.4569, lng: 9.1706
+    },
+    {
+      nome: "Pulci… e non solo! (Corsico)",
+      indirizzo: "Via Togliatti, Corsico",
+      orari: "1ª e 3ª domenica del mese, 7:00–17:00",
+      lat: 45.4245, lng: 9.1082
+    }
+  ];
+
+  mercatini.forEach(m => {
+    const marker = L.marker([m.lat, m.lng]).addTo(map);
+    marker.bindPopup(`<strong>${m.nome}</strong><br>${m.indirizzo}<br><em>${m.orari}</em>`);
+  });
+</script>
+
+</body>
+</html>
