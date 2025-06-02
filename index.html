@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Mercatini dell'usato a Milano</title>
+  <title>Mercatini di Milano</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
     body { margin: 0; font-family: sans-serif; }
@@ -19,7 +16,7 @@
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  const map = L.map('map').setView([45.4642, 9.19], 12);
+  const map = L.map('map').setView([45.4642, 9.19], 12); // Milano centro
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
@@ -37,6 +34,12 @@
       indirizzo: "Alzaia Naviglio Grande",
       orari: "Ultima domenica del mese, 8:30–18:30",
       lat: 45.4500, lng: 9.1675
+    },
+    {
+      nome: "Negri Molino Dorino",
+      indirizzo: "Molino Dorino",
+      orari: "Dalle 4 in poi penso tutti i giorni",
+      lat: 45.5054832, lng: 9.0934850
     },
     {
       nome: "East Market",
@@ -75,6 +78,12 @@
       lat: 45.5140, lng: 9.1278
     },
     {
+      nome: "Mercatino viale Papiniano",
+      indirizzo: "Viale Papiniano",
+      orari: "Martedi: 7:30 - 14:00, Sabato: 7:30 - 18:00",
+      lat: 45.4569, lng: 9.1706
+    },
+    {
       nome: "Pulci… e non solo! (Corsico)",
       indirizzo: "Via Togliatti, Corsico",
       orari: "1ª e 3ª domenica del mese, 7:00–17:00",
@@ -86,14 +95,6 @@
     const marker = L.marker([m.lat, m.lng]).addTo(map);
     marker.bindPopup(`<strong>${m.nome}</strong><br>${m.indirizzo}<br><em>${m.orari}</em>`);
   });
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(function(registration) {
-      console.log('ServiceWorker registrato con successo:', registration.scope);
-    }).catch(function(error) {
-      console.log('Registrazione ServiceWorker fallita:', error);
-    });
-  }
 </script>
 
 </body>
