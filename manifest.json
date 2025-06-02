@@ -1,0 +1,16 @@
+
+{
+  "name": "Mercatini Milano",
+  "short_name": "Mercatini",
+  "start_url": "milano-mercatini.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
